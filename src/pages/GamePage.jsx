@@ -34,6 +34,10 @@ const GamePage = () => {
         if (!selectedCell) return;
 
         const [row, col] = selectedCell;
+        
+        // Prevent editing given (pre-filled) cells
+        if (givenCells.has(`${row},${col}`)) return;
+
         const newGrid = userGrid.map(r => [...r]);
         newGrid[row][col] = num;
         setUserGrid(newGrid);
@@ -45,6 +49,10 @@ const GamePage = () => {
         if (!selectedCell) return;
 
         const [row, col] = selectedCell;
+        
+        // Prevent clearing given (pre-filled) cells
+        if (givenCells.has(`${row},${col}`)) return;
+
         const newGrid = userGrid.map(r => [...r]);
         newGrid[row][col] = 0;
         setUserGrid(newGrid);
