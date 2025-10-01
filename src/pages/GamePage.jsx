@@ -161,7 +161,17 @@ const GamePage = () => {
                             />
                         </div>
 
-                        {/* Controls Section - 30% */}
+                        {/* Number Pad - Directly below grid on mobile, in sidebar on desktop */}
+                        <div className="lg:hidden">
+                            <NumberPad
+                                onNumberClick={handleNumberInput}
+                                onClear={handleClear}
+                                selectedCell={selectedCell}
+                                userGrid={userGrid}
+                            />
+                        </div>
+
+                        {/* Controls Section - 30% on desktop */}
                         <div className="lg:w-[30%] flex flex-col gap-4">
                             {/* Spiral Tracker - First */}
                             <div>
@@ -172,8 +182,8 @@ const GamePage = () => {
                                 />
                             </div>
 
-                            {/* Number Pad with Counter - Second */}
-                            <div>
+                            {/* Number Pad - Only visible on desktop */}
+                            <div className="hidden lg:block">
                                 <NumberPad
                                     onNumberClick={handleNumberInput}
                                     onClear={handleClear}
